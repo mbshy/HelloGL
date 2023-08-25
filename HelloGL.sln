@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloTriangle", "HelloTrian
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloRectangle", "HelloRectangle\HelloRectangle.vcxproj", "{9683B161-3F31-47BB-B4BC-8416DFCC0A32}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TwoTrianglesWithMoreVertices", "TwoTrianglesWithMoreVertices\TwoTrianglesWithMoreVertices.vcxproj", "{81B78171-EC0E-4F3D-9516-68AC7B204E56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{9683B161-3F31-47BB-B4BC-8416DFCC0A32}.Release|x64.Build.0 = Release|x64
 		{9683B161-3F31-47BB-B4BC-8416DFCC0A32}.Release|x86.ActiveCfg = Release|Win32
 		{9683B161-3F31-47BB-B4BC-8416DFCC0A32}.Release|x86.Build.0 = Release|Win32
+		{81B78171-EC0E-4F3D-9516-68AC7B204E56}.Debug|x64.ActiveCfg = Debug|x64
+		{81B78171-EC0E-4F3D-9516-68AC7B204E56}.Debug|x64.Build.0 = Debug|x64
+		{81B78171-EC0E-4F3D-9516-68AC7B204E56}.Debug|x86.ActiveCfg = Debug|Win32
+		{81B78171-EC0E-4F3D-9516-68AC7B204E56}.Debug|x86.Build.0 = Debug|Win32
+		{81B78171-EC0E-4F3D-9516-68AC7B204E56}.Release|x64.ActiveCfg = Release|x64
+		{81B78171-EC0E-4F3D-9516-68AC7B204E56}.Release|x64.Build.0 = Release|x64
+		{81B78171-EC0E-4F3D-9516-68AC7B204E56}.Release|x86.ActiveCfg = Release|Win32
+		{81B78171-EC0E-4F3D-9516-68AC7B204E56}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

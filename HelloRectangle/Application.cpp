@@ -8,6 +8,9 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 unsigned int createBasicProgram(const char* vertexShaderSource, const char* fragmentShaderSource, unsigned int* err);
 
+enum PolygonMode {Fill = 1, Wireframe=2};
+
+enum PolygonMode currentPolygonMode = Fill;
 
 int main()
 {
@@ -114,7 +117,6 @@ int main()
 	glEnableVertexAttribArray(0);
 
 
-
 	// Keep drawing
 	while (!glfwWindowShouldClose(window))
 	{
@@ -150,7 +152,23 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 void processInput(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	{
 		glfwSetWindowShouldClose(window, true);
+	}
+	else if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+	{
+		if (currentPolygonMode == Fill)
+		{
+			currentPolygonMode = Wireframe;
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		}
+		else
+		{
+			currentPolygonMode = Fill;
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		}
+	}
+		
 }
 
 

@@ -19,6 +19,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GradualColorChange", "Gradu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FragmentInterpolation", "FragmentInterpolation\FragmentInterpolation.vcxproj", "{0FED0704-8EA1-4A46-BAD4-53553A79BF5E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95A68E39-70CB-45B3-9107-C013CD5BD87D}"
+	ProjectSection(SolutionItems) = preProject
+		READMe.md = READMe.md
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shared", "shared\shared.vcxproj", "{475792C7-0B67-41A1-BC2F-EEA0C38D898C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -91,6 +98,14 @@ Global
 		{0FED0704-8EA1-4A46-BAD4-53553A79BF5E}.Release|x64.Build.0 = Release|x64
 		{0FED0704-8EA1-4A46-BAD4-53553A79BF5E}.Release|x86.ActiveCfg = Release|Win32
 		{0FED0704-8EA1-4A46-BAD4-53553A79BF5E}.Release|x86.Build.0 = Release|Win32
+		{475792C7-0B67-41A1-BC2F-EEA0C38D898C}.Debug|x64.ActiveCfg = Debug|x64
+		{475792C7-0B67-41A1-BC2F-EEA0C38D898C}.Debug|x64.Build.0 = Debug|x64
+		{475792C7-0B67-41A1-BC2F-EEA0C38D898C}.Debug|x86.ActiveCfg = Debug|Win32
+		{475792C7-0B67-41A1-BC2F-EEA0C38D898C}.Debug|x86.Build.0 = Debug|Win32
+		{475792C7-0B67-41A1-BC2F-EEA0C38D898C}.Release|x64.ActiveCfg = Release|x64
+		{475792C7-0B67-41A1-BC2F-EEA0C38D898C}.Release|x64.Build.0 = Release|x64
+		{475792C7-0B67-41A1-BC2F-EEA0C38D898C}.Release|x86.ActiveCfg = Release|Win32
+		{475792C7-0B67-41A1-BC2F-EEA0C38D898C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

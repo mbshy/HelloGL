@@ -75,7 +75,6 @@ int main()
 	}
 
 
-	// Real stuff
 	float vertices[] = {
 	  0.5f,  0.5f, 0.0f, // top right
 	  0.5f, -0.5f, 0.0f, // bottom right

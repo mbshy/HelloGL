@@ -74,16 +74,23 @@ int main()
 
 	// Real stuff
 	float vertices[] = {
-	 -0.5f, -0.5f, 0.0f,
-	  0.5f, -0.5f, 0.0f,
-	  0.0f,  0.5f, 0.0f
+	  0.5f,  0.5f, 0.0f, // top right
+	  0.5f, -0.5f, 0.0f, // bottom right
+	 -0.5f, -0.5f, 0.0f, // bottom left
+	 -0.5f,  0.5f, 0.0f  // top right
+	};
+	unsigned int indices[] = {
+		0, 1, 3, // first triangle
+		1, 2, 3  // second triangle
 	};
 
 	// Vertex buffer boject
 	unsigned int VBO;
 	unsigned int VAO;
+	unsigned int EBO;
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
 
 	// bind vertex array
 	glBindVertexArray(VAO);
@@ -92,6 +99,9 @@ int main()
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	// Copy data to currently bound buffer
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	// telling OpenGL how it should interpret the vertex data (per vertex attribute)
 	// the first attribute specifies which arribute we want to configure, we use the same location we used in vertex shader source
@@ -115,7 +125,8 @@ int main()
 
 		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		//glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

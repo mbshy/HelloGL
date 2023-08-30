@@ -136,6 +136,11 @@
     <ClCompile Include="..\shared\glad.c" />
     <ClCompile Include="Application.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="fragment1.gls" />
+    <None Include="fragment2.gls" />
+    <None Include="vertex.gls" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

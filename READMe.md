@@ -1,6 +1,6 @@
 # HelloGL
 
-Coding with [learnopengl.com](https://learnopengl.com/) tutorial
+Coding with Joey de Vries, [learnopengl.com](https://learnopengl.com/) tutorial
 
 examples:
 * [OpenGL Info](OpenGLInfo)

@@ -22,4 +22,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="fragment1.gls" />
+    <None Include="fragment2.gls" />
+    <None Include="vertex.gls" />
+  </ItemGroup>
 </Project>

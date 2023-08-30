@@ -2,11 +2,11 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "../shared/shader.h"
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
-unsigned int createBasicProgram(const char* vertexShaderSource, const char* fragmentShaderSource, unsigned int* err);
 
 enum PolygonMode {Fill = 1, Wireframe=2};
 
@@ -43,37 +43,8 @@ int main()
 	glViewport(0, 0, 800, 600);
 	// Set framebuffer size change callback
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
-
-	// First `Vertex Shader` in GLSL(OpenGL Shading Language)
-	// we are declaring inpute vertex attribute with `in` keyword
-	// we use `vec3` because each vertex has a 3D coordinate
-	// we name it `aPos`
-	// we set the location of vertex attribute to location 0 via `layout (location = 0)`
-	const char* vertexShaderSource = "#version 330 core\n"
-		"layout (location = 0) in vec3 aPos;\n"
-		"void main()\n"
-		"{\n"
-		"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-		"}\0";
-
-	// First `Fragment Shader` in GLSL
-	// we are defining one output variable of vec4
-	// it defines the final color of Orange
-	const char* fragmentShaderSource = "#version 330 core\n"
-		"out vec4 FragColor;\n"
-		"void main()\n"
-		"{\n"
-		"	FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-		"}\n";
 	
-	unsigned int err = 0;
-	unsigned int shaderProgram = createBasicProgram(vertexShaderSource, fragmentShaderSource, &err);
-	if (err != 0) {
-		std::cout << "there was some error: " << err << std::endl;
-		return err;
-	}
-
+	Shader shaderProgram("vertex.gls", "fragment.gls");
 
 	float vertices[] = {
 	  0.5f,  0.5f, 0.0f, // top right
@@ -124,7 +95,7 @@ int main()
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glUseProgram(shaderProgram);
+		shaderProgram.use();
 		glBindVertexArray(VAO);
 		//glDrawArrays(GL_TRIANGLES, 0, 3);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
@@ -135,7 +106,6 @@ int main()
 
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
-	glDeleteProgram(shaderProgram);
 
 	glfwTerminate();
 	return 0;
@@ -168,68 +138,4 @@ void processInput(GLFWwindow* window)
 		}
 	}
 		
-}
-
-
-unsigned int createBasicProgram(const char* vertexShaderSource, const char* fragmentShaderSource, unsigned int* err)
-{
-	// These 2 variables are for compile errors
-	int success;
-	char infoLog[512];
-
-
-	// creating vertex shader
-	unsigned int vertexShader;
-	vertexShader = glCreateShader(GL_VERTEX_SHADER);
-
-	// attach the source code
-	// the second argument is how many strings we are passing as a source code
-	glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
-
-	// compile shader
-	glCompileShader(vertexShader);
-
-	// Check for any compilation error
-	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-	if (!success) {
-		glGetShaderInfoLog(vertexShader, 512, nullptr, infoLog);
-		std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
-		*err = 1;
-		return 0;
-	}
-
-	unsigned int fragmentShader;
-	fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
-	glCompileShader(fragmentShader);
-	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-	if (!success) {
-		glGetShaderInfoLog(vertexShader, 512, nullptr, infoLog);
-		std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
-		*err = 2;
-		return 0;
-	}
-
-
-	// Shader Program, it simply an object that link shaders together
-	unsigned int shaderProgram;
-	shaderProgram = glCreateProgram();
-	glAttachShader(shaderProgram, vertexShader);
-	glAttachShader(shaderProgram, fragmentShader);
-	glLinkProgram(shaderProgram);
-
-	// Check for any linking error
-	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-	if (!success) {
-		glGetProgramInfoLog(shaderProgram, 512, nullptr, infoLog);
-		std::cout << "ERROR::SHADER::LINK::LINKING_FAILED\n" << infoLog << std::endl;
-		*err = 3;
-		return 0;
-	}
-
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
-
-	*err = 0;
-	return shaderProgram;
 }

@@ -1,0 +1,13 @@
+
+// First `Vertex Shader` in GLSL(OpenGL Shading Language)
+// we are declaring inpute vertex attribute with `in` keyword
+// we use `vec3` because each vertex has a 3D coordinate
+// we name it `aPos`
+// we set the location of vertex attribute to location 0 via `layout (location = 0)`
+
+#version 330 core
+layout (location = 0) in vec3 aPos;
+void main()
+{
+   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+}

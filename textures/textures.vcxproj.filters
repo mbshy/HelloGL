@@ -15,27 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="glad.c">
+    <ClCompile Include="Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stb_image.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shader.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="resources\wall.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\awesomeface.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\container.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <None Include="fragment.gls" />
+    <None Include="vertex.gls" />
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 
 Coding with Joey de Vries, [learnopengl.com](https://learnopengl.com/) tutorial
 
-examples:
+Basic Examples:
 * [OpenGL Info](OpenGLInfo)
 * [Hello triangle](HelloTriangle)
 * [Hello rectangle](HelloRectangle)
@@ -12,6 +12,9 @@ examples:
 * [Using uniform to gradually change color of objects over time](GradualColorChange)
 * [Fragment interpolation + Upside down + offset](FragmentInterpolation)
 * [Use Position as Color value](PositionAsColor)
+* [Hello Texture](textures)
+* [Display 4 smiley faces](textures)
+* [Change mix value with arrow keys](textures)
 
 # License
 All code samples, unless explicitly stated otherwise, are licensed under the terms of the CC BY-NC 4.0 license as published by Creative Commons, either version 4 of the License, or (at your option) any later version. You can find a human-readable format of the license [here](https://creativecommons.org/licenses/by-nc/4.0/) and the full license [here](https://creativecommons.org/licenses/by-nc/4.0/legalcode).
